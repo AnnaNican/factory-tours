@@ -8,7 +8,7 @@ import numpy as np
 ts = time.time()
 today = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%dT%H:%M:%S')
 
-df = pd.read_csv('data_factories.csv')
+df = pd.read_csv('data_factories_with_mapping.csv')
 
 
 for rownum, row in df.iterrows():
@@ -19,6 +19,7 @@ for rownum, row in df.iterrows():
 	df.loc[rownum, 'End Date/Time'] = today
 	df.loc[rownum, 'City'] = 'Test'
 	df.loc[rownum, 'createdTime'] = today
+	print(row['factory_type'])
 
 # df["id"] = 'rec0IH8utLHrbSyVW'
 
@@ -28,14 +29,15 @@ df.rename(columns={
 		'factory_url': 'Website',
 		'state': 'State/Province',
 		'latitude': 'Latitude',
-		'longitude': 'Longitude'}, 
+		'longitude': 'Longitude',
+		'factory_type': 'Type'}, 
 		inplace=True) 
 
 df = df[np.isfinite(df['Longitude'])]
 
 
 j = (df.groupby(['id', 'createdTime'], as_index=False)
-             .apply(lambda x: x[['Name', 'Description', 'Start Date/Time', 'End Date/Time', 'City', 'Website', 'State/Province', 'Latitude', 'Longitude']].to_dict('r'))
+             .apply(lambda x: x[['Name', 'Description', 'Start Date/Time', 'End Date/Time', 'City', 'Website', 'State/Province', 'Latitude', 'Longitude', 'Type']].to_dict('r'))
              .reset_index()
              .rename(columns={0:'fields'})
              .to_json(orient='records'))

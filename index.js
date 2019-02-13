@@ -50,13 +50,28 @@ d3.json("us-states.json", function(json) {
          } else {
            return document.createElementNS('http://www.w3.org/2000/svg', "circle");
          }
-
          // if (d.fields.Name.indexOf("DataRescue") != -1) {
          // return document.createElementNS('http://www.w3.org/2000/svg', "circle");
          // } else {
          //   return document.createElementNS('http://www.w3.org/2000/svg', "rect");
          // }
       })
+      .style("fill", function(d) {
+            if (d.fields.Type == 'Food Production') {
+              // console.log(d.fields.Type);
+              // console.log(typeof(d.fields.Type));
+              return "#BAA346"}
+            else if (d.fields.Type == 'Clothing and Textiles'){
+              return "#304751" }
+            else if (d.fields.Type == 'Wood, Leather and Paper'){
+              return "#9A7A34" }
+            else if (d.fields.Type == 'Petrolium, Chemicals and Plastics'){
+              return "#842E21" }
+            else if (d.fields.Type == 'Food Production'){
+              return "#BAA346"} 
+            else { 
+              console.log(d.fields.Type);
+              return "blue" }})
       .attr("class", "shapes")
     
     svg.selectAll("circle")
@@ -68,6 +83,11 @@ d3.json("us-states.json", function(json) {
 				return projection([d.fields.Longitude, d.fields.Latitude])[1];
 			})
 			.attr("r", "12")
+      // .style("fill", function(d) {
+      //       if (d.fields.Type = "Food Production") {
+      //         console.log(d.fields.Type);
+      //         return "red"}
+      //       else { return "blue" }})
     .on("mouseover", function(d) {
        
        div.transition()

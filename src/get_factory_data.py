@@ -2,22 +2,20 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
+import re
 
 
 
 def find_states():
+	global data, states
 	page = requests.get('http://www.factorytoursusa.com/')
 	soup = BeautifulSoup(page.text, 'html.parser')
-
-
+	#
 	states = soup.find_all('a')
-
-
 	data = pd.DataFrame(columns=[])
 	# create 
-
 	data['html'] = states
-
+	#
 	for rownum, row in data.iterrows():
 		url = re.findall(r'href="(.*)">', str(row['html']))[0]
 		if 'state' not in url:
@@ -25,10 +23,10 @@ def find_states():
 		else:
 			data.loc[rownum, 'state'] = re.findall(r'>(.*)<', str(row['html']))[0]
 			data.loc[rownum, 'url'] = re.findall(r'href="(.*)">', str(row['html']))[0]
-
+	#
 	data.dropna(subset=['state'], inplace=True)
-
-	return states
+	#
+	return data, states
 
 
 def get_factories_from_state(state_url):
@@ -123,47 +121,38 @@ for rownum, row in data.iterrows():
 	data_factories = data_factories.append(factory_df)
 # reset indec
 
+# df = data_factories
+# data_factories = df[0:20]
 
+# data_factories = df
 # loop through all factories and get their metadata
 newcols = ['longitude', 'latitutde', 'description', 'hours', 'factory_meta']
-data_factories.reindex([*data_factories.columns, *newcols], axis=1)
+# data_factories.reindex([*data_factories.columns, *newcols], axis=1)
+pd.concat([data_factories,pd.DataFrame(columns=newcols)])
 
 # pd.concat([df,pd.DataFrame(columns=list('longitudelatitutde', 'description', 'hours', 'factory_meta'))])
 # data_factories.reindex(columns=list('longitude', 'latitutde', 'description', 'hours', 'factory_meta'))
+data_factories = data_factories.reset_index()
 for rownum, row in data_factories.iterrows():
 	print(row['factory_url'])
-	factory_details = get_factory_details(row['factory_url'])
-	data_factories.loc[rownum, 'longitude'] = str(factory_details[0])
-	data_factories.loc[rownum, 'latitude'] = factory_details[1]
-	data_factories.loc[rownum, 'hour'] = factory_details[2]
-	data_factories.loc[rownum, 'description'] = factory_details[3]
-	data_factories.loc[rownum, 'metadata'] = str(factory_details[4])
+	# print(row)
+	# print(rownum)
+	try:
+		factory_details = get_factory_details(row['factory_url'])
+		# print(factory_details)
+		data_factories.loc[rownum, 'longitude'] = str(factory_details[0])
+		# print(str(factory_details[0]))
+		data_factories.loc[rownum, 'latitude'] = factory_details[1]
+		# print(str(factory_details[1]))
+		data_factories.loc[rownum, 'hour'] = factory_details[2]
+		data_factories.loc[rownum, 'description'] = factory_details[3]
+		data_factories.loc[rownum, 'metadata'] = str(factory_details[4])
+		# print(row)
+	except:
+		next
 
 data_factories.to_csv('data_factories.csv', index=False)
 
 
 
 
-
-
-
-
-# b_el = meta_h.find('b',text='Hours')
-# b_el.next_sibling.next_sibling.next_sibling.next_sibling     # contains " Test title"
-
-
-# # this is actually works and neat way to do
-# for i in len(meta_h.contents)
-# 	while meta_h.contents[i] not in ['\\n', , 3]:
-# 		hours = meta_h.contents[i]
-# # The Loop 1
-
-# # for every state, get all the factory names -> store in the table
-
-# # Now iterate through second tab;le
-# #for every factory, create the url, pull the file and then get_factrory_details
-
-# if 'Company' in str(meta_data[3]):
-# 	print('yes')
-# else:
-# 	print('no')
