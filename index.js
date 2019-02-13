@@ -25,7 +25,7 @@ var svg = d3.select("#map")
 			.attr("preserveAspectRatio", "xMidYMid meet");
 
 // Load GeoJSON data and merge with states data
-d3.json("us-states.json", function(json) {
+d3.json("public/data/us-states.json", function(json) {
 	
 	var repeat = {};
 	// Bind the data to the SVG and create one path per GeoJSON feature
@@ -34,11 +34,13 @@ d3.json("us-states.json", function(json) {
 		.enter()
 		.append("path")
 		.attr("d", path)
-		.style("stroke", "#fff")
-		.style("stroke-width", "1")
-		.style("fill", "rgb(4,2,39)");
+		// .style("stroke", "#fff")
+    .style("stroke", "black")
+		.style("stroke-width", "3")
+		// .style("fill", "rgb(4,2,39)");
+    .style("fill", "#fff");
 
-	d3.json("data.json", function(data) {
+	d3.json("public/data/data.json", function(data) {
 		console.log('we got here')
 		svg.selectAll(".shapes")
 			.data(data.records)
@@ -60,18 +62,20 @@ d3.json("us-states.json", function(json) {
             if (d.fields.Type == 'Food Production') {
               // console.log(d.fields.Type);
               // console.log(typeof(d.fields.Type));
-              return "#BAA346"}
+              return "#F9FA74"}
             else if (d.fields.Type == 'Clothing and Textiles'){
-              return "#304751" }
+              return "#4DA6B2" }
             else if (d.fields.Type == 'Wood, Leather and Paper'){
-              return "#9A7A34" }
+              return "#D82E20" }
             else if (d.fields.Type == 'Petrolium, Chemicals and Plastics'){
-              return "#842E21" }
-            else if (d.fields.Type == 'Food Production'){
-              return "#BAA346"} 
+              return "#98ACE3" }
+            else if (d.fields.Type == 'Electronics, Computers and Transportation'){
+              return "#9FC55C"}
+            else if (d.fields.Type == 'Metal Manufacturing'){
+              return "#F5B85A"}  
             else { 
-              console.log(d.fields.Type);
-              return "blue" }})
+              // console.log(d.fields.Type);
+              return "#53B9D7" }})
       .attr("class", "shapes")
     
     svg.selectAll("circle")

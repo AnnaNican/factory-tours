@@ -8,7 +8,7 @@ import numpy as np
 ts = time.time()
 today = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%dT%H:%M:%S')
 
-df = pd.read_csv('data_factories_with_mapping.csv')
+df = pd.read_csv('../data/data_factories_with_mapping.csv')
 
 
 for rownum, row in df.iterrows():
@@ -19,7 +19,7 @@ for rownum, row in df.iterrows():
 	df.loc[rownum, 'End Date/Time'] = today
 	df.loc[rownum, 'City'] = 'Test'
 	df.loc[rownum, 'createdTime'] = today
-	print(row['factory_type'])
+	# print(row['factory_type'])
 
 # df["id"] = 'rec0IH8utLHrbSyVW'
 
@@ -46,12 +46,11 @@ j = (df.groupby(['id', 'createdTime'], as_index=False)
 
 d = json.loads(j)
 for numitem, item in enumerate(d):
-	print(numitem)
 	item['fields'] = item['fields'][0]
 
 e = { "records": d }
 
-with open('data.json', 'w') as outfile:
+with open('../data/data.json', 'w') as outfile:
     json.dump(e, outfile)
 
 
