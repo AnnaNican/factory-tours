@@ -2,6 +2,28 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+/*.section { height: 100vh;}*/
+
+.section-init { 
+  height: 100%;
+  text-align: right;
+  margin-right: 10%;
+  }
+.section-map { 
+  height: 100%;
+  text-align: center;
+  }
+
+.section-stats { height: 100%;}
+
+.img-init{
+  margin-top: 5%;
+}
+
+#map {
+  
+}
+
 .circle {
   fill: #7500a9;
   opacity: .5;
@@ -28,4 +50,90 @@ div.tooltip {
   border-radius: 8px;
   pointer-events: none;
   font-family: 'Montserrat', sans-serif;
+}
+
+
+.parent {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.child {
+  /*flex: 1 0 21%;  explanation below */
+  margin: 5px;
+  /*height: 100px;*/
+  /*background-color: blue;*/
+}
+ #legend-clothing {
+      width: 20px;
+      height: 20px;
+      -webkit-border-radius: 25px;
+      -moz-border-radius: 25px;
+      border-radius: 25px;
+      background: #F9FA74;
+    }
+
+ #legend-wood {
+      width: 20px;
+      height: 20px;
+      -webkit-border-radius: 25px;
+      -moz-border-radius: 25px;
+      border-radius: 25px;
+      background: #D82E20;
+    }
+
+ #legend-chemicals {
+      width: 20px;
+      height: 20px;
+      -webkit-border-radius: 25px;
+      -moz-border-radius: 25px;
+      border-radius: 25px;
+      background: #98ACE3;
+    }
+
+ #legend-electronics {
+      width: 20px;
+      height: 20px;
+      -webkit-border-radius: 25px;
+      -moz-border-radius: 25px;
+      border-radius: 25px;
+      background: #9FC55C;
+    }
+
+#legend-metal {
+      width: 20px;
+      height: 20px;
+      -webkit-border-radius: 25px;
+      -moz-border-radius: 25px;
+      border-radius: 25px;
+      background: #F5B85A;
+    }
+
+#legend-misc {
+      width: 20px;
+      height: 20px;
+      -webkit-border-radius: 25px;
+      -moz-border-radius: 25px;
+      border-radius: 25px;
+      background: #53B9D7;
+    }
+
+
+/*dognut chart*/
+.pie {
+  margin: 20px;
+}
+
+.pie text {
+  font-family: "Montserrat";
+  font-size: 12px;
+  fill: #888;
+}
+
+.pie .name-text{
+  font-size: 1em;
+}
+
+.pie .value-text{
+  font-size: 3em;
 }

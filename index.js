@@ -41,12 +41,12 @@ d3.json("public/data/us-states.json", function(json) {
     .style("fill", "#fff");
 
 	d3.json("public/data/data.json", function(data) {
-		console.log('we got here')
+		// console.log('we got here')
 		svg.selectAll(".shapes")
 			.data(data.records)
 			.enter()
 			.append(function(d){
-         console.log(d);
+         // console.log(d);
         if (d.fields.Name.indexOf("factory") != -1) {
          return document.createElementNS('http://www.w3.org/2000/svg', "rect");
          } else {

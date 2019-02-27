@@ -4,19 +4,51 @@
 </head>
 
 <body>
-	<img src="/public/img/factory.png" scale="0" width="100%">
-	<h2>walkabouts around U.S.A.</h2>
-	<p>Some te</p>
 
-	<div id="map" style="display: flex;">
+<section class="section-init">
+	<!-- <img class = "img-init" src="/public/img/factory.png" scale="0" width="100%"> -->
+	<h1>Factory Tours</h1>
+	<h2>walkabouts around U.S.A. factories</h2>
+<p>Factories are these magical buildings that produce things, lot’s of the things that satisfy our cravings, keep economy running and are the pride and (in most cases) the state of the development nations. They don’t always have the prettiest architecture and for me personally, the word “factory” is associated with black and white pictures of dull and tired workers standing in line to punch their cards. Over the years they have been transitioning from symbols of industrial revolutions to scapegoats of climate change.  Lot’s of things changed in the factories - including the pure fact that there are less and less humans working there and some factories.
+This projects summarizes factories in US.</p>
+</section>
+
+<section class="section-map">
+	<h2> Factories across U.S.A. </h2>
+	<div id="map" style="display: flex;"></div>
+	<div class="parent">
+		<div class = "child" id="legend-clothing" ></div>
+		<div class = "child">Clothing and Textiles</div>
+		<div class = "child" id="legend-wood" ></div>
+		<div class = "child">Wood, Leather and Paper</div>
+		<div class = "child" id="legend-chemicals" ></div>
+		<div class = "child">Petrolium, Chemicals and Plastics</div>
+		<div class = "child" id="legend-electronics" ></div>
+		<div class = "child">Electronics, Computers and Transportation</div>
+		<div class = "child" id="legend-metal" ></div>
+		<div class = "child">Metal</div>
+		<div class = "child" id="legend-misc" ></div>
+		<div class = "child">Mics</div>
 	</div>
 
-
-	<h2>States with Most Factories</h2>
 	<p>Some text</p>
+</section>	
 
 
-	<script src="https://d3js.org/d3.v4.min.js"></script>
-	<script src="index.js"></script>
+</div>
+	
+<section class = "section-stats">	
+<h2>States with Most Factories</h2>	
+<p>Some text</p>	
+<div id="piechart" style="display: flex;"></div>
+
+<p> state with most factories: California
+<section>
+
+
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="index.js"></script>
+<script src="piechart.js"></script>
 </body>
 </html>
