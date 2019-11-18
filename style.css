@@ -1,106 +1,27 @@
 body {
-  /*font-family: 'Montserrat', sans-serif;*/
-  font-family: 'Indie Flower', cursive;
-  scroll-snap-type: mandatory;
-  scroll-snap-points-y: repeat(100vh);
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-
-  border: 2px solid var(--gs0);
-  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
 }
-
-
-
 
 /*.section { height: 100vh;}*/
 
 .section-init { 
   height: 100%;
-  /*text-align: right;*/
-  /*scroll-snap-align: start;*/
-
-  scroll-snap-align: start;
-
-  justify-content: center;
-  align-items: left;
-  margin: 5% 5% 5% 5%;
-  /*height: 33vh;*/
-  /*display: flex;*/
-  /*justify-content: center;*/
-  
-  /*font-size: 4rem;*/
-
+  text-align: right;
+  margin-right: 10%;
   }
 .section-map { 
   height: 100%;
   text-align: center;
-  justify-content: center;
-  align-items: center;
-  margin: 5% 5% 5% 5%;
   }
 
-.section-stats { 
-    height: 100%;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    margin: 5% 5% 5% 5%;
-  }
-
+.section-stats { height: 100%;}
 
 .img-init{
   margin-top: 5%;
 }
 
-/**/
-
-
-
-.some-page-wrapper {
-  margin: 15px;
-  background-color: red;
-}
-
-/*Flexbox*/
-
-.row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.column {
-  display: flex;
-  flex-direction: column;
-  flex-basis: 100%;
-  flex: 1;
-}
-
-.header {
-  font-size: 65px;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.header-small {
-  font-size: 35px;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.header-notes {
-  font-size: 15px;
-  align-items: center;
-  justify-content: space-around;
-}
-
-/* Styling the map*/
-
 #map {
-  width: 80%;
-  margin: 0 10% 3% 10%;
+  
 }
 
 .circle {
@@ -124,22 +45,17 @@ div.tooltip {
   height: 150px;
   padding: 2px;
   font: 12px sans-serif;
-  /*background: lightsteelblue;*/
-  background: white ;
+  background: lightsteelblue;
   border: 0px;
   border-radius: 8px;
   pointer-events: none;
-  /*font-family: 'Montserrat', sans-serif;*/
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Montserrat', sans-serif;
 }
 
 
-/* Color Legend*/
 .parent {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-around;
 }
 
 .child {
@@ -221,30 +137,3 @@ div.tooltip {
 .pie .value-text{
   font-size: 3em;
 }
-
-
-
-.radar-chart{
-  /*width:50%;*/
-}
-#half {
-  width: 50%;
-  float: right;
-}
-
-.factory-list{
-  /*list-style: none; */
-  list-style: check;
-  text-align: left; 
-  margin: 10% 10% 10% 10%;
-  font-size: 25px;
-}
-
-a:hover, a:visited, a:link, a:active
-{
-    text-decoration: none;
-    color: black;
-}
-
-/**/
-

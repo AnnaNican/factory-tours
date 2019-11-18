@@ -38,7 +38,7 @@ d3.json("public/data/us-states.json", function(json) {
     .style("stroke", "black")
 		.style("stroke-width", "3")
 		// .style("fill", "rgb(4,2,39)");
-    .style("fill", "#fff");
+    .style("fill", "white");
 
 	d3.json("public/data/data.json", function(data) {
 		// console.log('we got here')
@@ -98,7 +98,8 @@ d3.json("public/data/us-states.json", function(json) {
          .duration(200)
          .style("opacity", .9);
        
-       div.html(d.fields.Name + " " + d.fields.Description)
+       div.html("<h2>" + d.fields.Name + "</h2>"    
+               + " " + d.fields.Description.substring(0, 200) )
          .style("left", (d3.event.pageX) + "px")
          .style("top", (d3.event.pageY - 28) + "px");
        })
@@ -106,7 +107,13 @@ d3.json("public/data/us-states.json", function(json) {
        div.transition()
          .duration(500)
          .style("opacity", 0);
-       });
+       })
+     .on("click", function(d)
+       { d3.select(this).attr(d.fields.Website);
+         console.log(d.fields.Website);
+         window.open(d.fields.Website);
+       })
+     ;
 
     
     svg.selectAll("rect")
@@ -138,28 +145,7 @@ d3.json("public/data/us-states.json", function(json) {
 });
 
 
-  const svg1 = document.querySelector('.radar-chart');
-  
-  const radarChart = new chartXkcd.Radar(svg1, {
-    title: 'Letters in random words',
-    data: {
-      labels: ['c', 'h', 'a', 'r', 't'],
-      datasets: [{
-        label: 'ccharrrt',
-        data: [2, 1, 1, 3, 1],
-      }, {
-        label: 'chhaart',
-        data: [1, 2, 2, 1, 1],
-      }],
-    },
-    options: {
-      showLegend: true,
-      dotSize: 0.8,
-      showLabels: true,
-      legendPosition: chartXkcd.config.positionType.upRight,
-      // unxkcdify: true,
-    },
-  });
+
 
 
 
