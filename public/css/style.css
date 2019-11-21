@@ -1,15 +1,43 @@
 body {
+  
   /*font-family: 'Montserrat', sans-serif;*/
   font-family: 'Indie Flower', cursive;
-  scroll-snap-type: mandatory;
-  scroll-snap-points-y: repeat(100vh);
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
+  
 
   border: 2px solid var(--gs0);
   border-radius: 8px;
+
 }
 
+.section-wrapper {
+
+  scroll-snap-type: mandatory;
+  scroll-snap-points-y: repeat(100vh);
+  scroll-snap-type: y mandatory;
+
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid #333;
+  overflow: scroll;
+  position: relative;
+}
+
+.x-mandatory {
+  scroll-snap-type: x mandatory;
+}
+
+.y-mandatory {
+  scroll-snap-type: y mandatory;
+}
+
+.both-mandatory {
+  scroll-snap-type: both mandatory;
+}
 
 
 
