@@ -1,7 +1,7 @@
 
 
 
-# Manufactore Tours
+# Manufactory Tours
 
 Factories are these magical buildings that produce things, a lot of the things that satisfy our cravings, keep the economy running and are often the pride of nations. Over the years they have been transitioning from symbols of industrial revolutions to scapegoats of climate change.  They do not always have the prettiest architecture, yet some have been the nucleus of innovation in construction. Lot&apos;s of things changed in the factories - including the fact that there are fewer and fewer humans working there. This project maps the factories that are open for visits to spur on visits to the places that make our "stuff". 
 
